@@ -3,7 +3,6 @@ import "./App.css";
 
 import { createEditor } from "./Editor";
 import { useRete } from "rete-react-plugin";
-import { AppProvider } from "./providers";
 
 function App() {
   const create = useCallback((el: HTMLElement) => { return createEditor(el); }, []);
