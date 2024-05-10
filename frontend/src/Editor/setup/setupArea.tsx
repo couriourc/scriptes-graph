@@ -6,9 +6,11 @@ export function setupArea() {
 
     AreaExtensions.simpleNodesOrder(area);
     AreaExtensions.showInputControl(area);
-    AreaExtensions.selectableNodes(area, AreaExtensions.selector(), {
-        accumulating: AreaExtensions.accumulateOnCtrl(),
-    });
+
+
+    const selector = AreaExtensions.selector();
+    const accumulating = AreaExtensions.accumulateOnCtrl();
+    AreaExtensions.selectableNodes(area, selector, { accumulating });
 
 
 }

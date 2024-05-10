@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { NodeEditor } from "rete";
-import { AreaPlugin } from "rete-area-plugin";
+import { AreaExtensions, AreaPlugin } from "rete-area-plugin";
 import { ConnectionPlugin } from "rete-connection-plugin";
 import { ReactPlugin } from "rete-react-plugin";
 import {
@@ -14,7 +14,11 @@ import {
     setupArea,
     setupConnection,
     setupArranges,
+    setupCustomNodes,
+    setupReroute,
+    setupEngine,
 } from "./setup"
+import { StringNode } from "./presets/nodes/variables/string";
 
 export const Editor = new Singleton<{
     editor: NodeEditor<Schemes>;
@@ -43,12 +47,16 @@ export async function createEditor(container: HTMLElement) {
         arrange,
         connection,
     });
+    editor.addNode(new StringNode("asd"))
 
+    setupEngine();
     setupArea();
     setupArranges();
     setupConnection();
     setupCustomBackground();
     setupContextMenu();
+    setupReroute();
+    setupCustomNodes();
 
     return {
         destroy: () => area.destroy(),

@@ -6,6 +6,7 @@ export class VaraibaleSocket extends ClassicPreset.Socket {
     }
 
     isCompatibleWith(socket: ClassicPreset.Socket) {
-        return socket instanceof VaraibaleSocket;
+        console.log(socket)
+        return true
     }
 }

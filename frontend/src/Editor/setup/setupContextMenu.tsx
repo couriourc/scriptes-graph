@@ -7,10 +7,12 @@ import {
 } from "rete-context-menu-plugin";
 import { StringNode } from "../presets/nodes/variables/string";
 import { MakeStringNode } from "../presets/nodes/constructor/makeString";
+import { styled } from "styled-components";
 
 export function setupContextMenu() {
     const { render, area } = Editor.get()
 
+    const { Menu, Common, Search, Item, Subitems } = Presets.contextMenu;
 
     const contextMenu = new ContextMenuPlugin<Schemes>({
         items: ContextMenuPresets.classic.setup([
@@ -18,10 +20,21 @@ export function setupContextMenu() {
             ["make string", () => new MakeStringNode("")],
         ]),
     });
+    const CustomMenu = styled(Menu)`
+    width: 320px;
+  `
+    const CustomItem = styled(Item)`
+    background: grey;
+  `
 
     render.addPreset(
         Presets.contextMenu.setup({
             customize: {
+                main: () => CustomMenu,
+                item: () => CustomItem,
+                common: () => Common,
+                search: () => Search,
+                subitems: () => Subitems
             },
         })
     );
