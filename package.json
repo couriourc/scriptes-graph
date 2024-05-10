@@ -8,5 +8,8 @@
   "license": "ISC",
   "dependencies": {
     "cli": "workspace:^"
+  },
+  "devDependencies": {
+    "nx": "19.0.2"
   }
 }
