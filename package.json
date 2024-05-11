@@ -6,10 +6,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "cli": "workspace:^"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "cli": "workspace:^",
     "nx": "19.0.2"
   }
 }

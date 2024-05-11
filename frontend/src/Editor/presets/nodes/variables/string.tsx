@@ -3,8 +3,6 @@ import { VaraibaleNode } from "./variable";
 
 export class StringNode extends VaraibaleNode {
 
-
-
     constructor(public value: string) {
         super("String");
         console.log(this.socket)

@@ -1,13 +1,13 @@
-import { createRoot } from "react-dom/client";
-import { NodeEditor } from "rete";
-import { AreaExtensions, AreaPlugin } from "rete-area-plugin";
-import { ConnectionPlugin } from "rete-connection-plugin";
-import { ReactPlugin } from "rete-react-plugin";
+import {createRoot} from "react-dom/client";
+import {NodeEditor} from "rete";
+import {AreaExtensions, AreaPlugin} from "rete-area-plugin";
+import {ConnectionPlugin} from "rete-connection-plugin";
+import {ReactPlugin} from "rete-react-plugin";
 import {
     AutoArrangePlugin,
 } from "rete-auto-arrange-plugin";
-import { Singleton } from "@couriourc/design-patterns";
-import { AreaExtra, Schemes } from "../types";
+import {Singleton} from "@couriourc/design-patterns";
+import {AreaExtra, Schemes} from "./presets/types";
 import {
     setupContextMenu,
     setupCustomBackground,
@@ -17,8 +17,8 @@ import {
     setupCustomNodes,
     setupReroute,
     setupEngine,
-} from "./setup"
-import { StringNode } from "./presets/nodes/variables/string";
+} from "./setup";
+import {StringNode} from "./presets/nodes";
 
 export const Editor = new Singleton<{
     editor: NodeEditor<Schemes>;
@@ -32,7 +32,7 @@ export async function createEditor(container: HTMLElement) {
     const editor = new NodeEditor<Schemes>();
     const area = new AreaPlugin<Schemes, AreaExtra>(container);
     const connection = new ConnectionPlugin<Schemes, AreaExtra>();
-    const render = new ReactPlugin<Schemes, AreaExtra>({ createRoot });
+    const render = new ReactPlugin<Schemes, AreaExtra>({createRoot});
     const arrange = new AutoArrangePlugin<Schemes, AreaExtra>();
 
     editor.use(area);
@@ -47,7 +47,8 @@ export async function createEditor(container: HTMLElement) {
         arrange,
         connection,
     });
-    editor.addNode(new StringNode("asd"))
+
+    editor.addNode(new StringNode("asd"));
 
     setupEngine();
     setupArea();
