@@ -1,5 +1,5 @@
-import { ClassicPreset } from "rete";
+import { BaseNode } from "..";
 
-export class ConstructorNode extends ClassicPreset.Node {
+export class ConstructorNode extends BaseNode {
 
 }

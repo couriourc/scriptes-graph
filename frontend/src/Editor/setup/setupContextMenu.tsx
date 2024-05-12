@@ -8,18 +8,29 @@ import {
 import { StringNode } from "../presets/nodes/variables/string";
 import { MakeStringNode } from "../presets/nodes/constructor/makeString";
 import { styled } from "styled-components";
+import { OperatorNode } from "../presets/nodes/operator";
+import { AddNode } from "../presets/nodes/operator/add";
 
 export function setupContextMenu() {
     const { render, area } = Editor.get()
 
+    console.log(
+
+    )
     const { Menu, Common, Search, Item, Subitems } = Presets.contextMenu;
 
     const contextMenu = new ContextMenuPlugin<Schemes>({
-        items: ContextMenuPresets.classic.setup([
-            ["string", () => new StringNode("")],
-            ["make string", () => new MakeStringNode("")],
-        ]),
+        items: ContextMenuPresets.classic.setup(
+            [
+                ["string", () => new StringNode("")],
+
+                ["make string", () => new MakeStringNode("")],
+
+                ["add", () => new AddNode("")]
+            ]
+        ),
     });
+
     const CustomMenu = styled(Menu)`
     width: 320px;
   `

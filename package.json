@@ -1,12 +1,19 @@
 {
   "private": "true",
   "scripts": {
+    "inspect": "nx graph",
+    "dev": "nx dev frontend ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {},
+  "workspaces": [
+    "frontend/*",
+    "cli/*",
+    "backend/*"
+  ],
   "devDependencies": {
     "cli": "workspace:^",
     "nx": "19.0.2"

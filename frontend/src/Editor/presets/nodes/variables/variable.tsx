@@ -1,8 +1,12 @@
 import { ClassicPreset } from "rete";
 import { VaraibaleSocket } from "../../sockets/variable";
 import { Presets } from "rete-react-plugin";
+import { BaseNode } from "..";
 
-export class VaraibaleNode extends ClassicPreset.Node {
+export class VaraibaleNode extends BaseNode {
+    name = "variable";
+    description = "variable";
+
     socket: VaraibaleSocket = new VaraibaleSocket();
     value: any;
 
